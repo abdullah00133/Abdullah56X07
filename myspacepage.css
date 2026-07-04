@@ -1,0 +1,8 @@
+body{
+    background-color: navy;
+    background-image: linear-gradient(to bottom, Cyan,Navy);
+    background-repeat: no-repeat;
+    background-position: top center;
+    font-family: Arial,Sans-serif;
+    
+}
