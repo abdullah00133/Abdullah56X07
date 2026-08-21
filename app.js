@@ -7,7 +7,6 @@ console.log("Node.js environment is active and running perfectly!");
 // ==========================================
 // ACTIVITY 2: Working with Variables & Math
 // ==========================================
-// Screenshot ke mutabiq direct arithmetic operations aur variables create karna
 let a = 10;
 let b = 5;
 let addition = a + b;
