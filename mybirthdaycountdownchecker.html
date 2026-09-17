@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Annual Milestone Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0f172a, #1e1e38);
+            color: #e2e8f0;
+            text-align: center;
+        }
+
+        .birthday-card {
+            width: 520px;
+            background-color: #1e293b;
+            border: 4px solid #38bdf8;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 25px;
+            box-shadow: 0 0 20px #0284c7;
+        }
+
+        h1 {
+            color: #38bdf8;
+            font-size: 34px;
+        }
+
+        .emoji {
+            font-size: 30px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .info-box {
+            background-color: #0f172a;
+            border: 2px dashed #38bdf8;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0284c7;
+            color: white;
+        }
+
+        #daysBox {
+            font-size: 42px;
+            font-weight: bold;
+            color: #f43f5e;
+        }
+
+        #result {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        #countdown {
+            color: #38bdf8;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="birthday-card">
+
+        <div class="emoji">System Matrix</div>
+
+        <h1>Annual Milestone Tracker</h1>
+
+        <p>
+            Execute the verification tool to compute the remaining timeframe for the upcoming target milestone.
+        </p>
+
+        <button onclick="checkBirthday()">Verify Milestone Remaining</button>
+
+        <h2>Remaining Timeline</h2>
+        <div id="daysBox">?</div>
+
+        <div class="info-box">
+            <h2>Verification Output</h2>
+            <p id="result"></p>
+        </div>
+
+        <div class="info-box">
+            <h2>Sequential Review Log</h2>
+            <p id="countdown"></p>
+        </div>
+
+    </div>
+
+    <script>
+        function checkBirthday() {
+
+            let birthdayGift = null;
+            let birthdayPlan;
+
+            const studentName = "Abdullah";
+            const birthdayMonth = 3;
+            const birthdayDate = 12;
+
+            let message = "";
+            let countdownText = "";
+
+            let today = new Date();
+            let currentYear = today.getFullYear();
+
+            let birthday = new Date(currentYear, birthdayMonth - 1, birthdayDate);
+
+            if (birthday < today) {
+                birthday = new Date(currentYear + 1, birthdayMonth - 1, birthdayDate);
+            }
+
+            let timeDifference = birthday - today;
+            let daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            if (daysLeft === 0) {
+                message = "Target reached for user: " + studentName + ". The scheduled event is active today.";
+            } else if (daysLeft <= 7) {
+                message = "The designated schedule timeline is imminent, " + studentName + ".";
+            } else {
+                message = "Maintain tracking status, " + studentName + ". The designated milestone event is pending.";
+            }
+
+            let finalMessage = "Registered Client: " + studentName + "<br>";
+            finalMessage = finalMessage + "System Current Date: " + today.toDateString() + "<br>";
+            finalMessage = finalMessage + "Target Milestone Date: " + birthday.toDateString() + "<br>";
+            finalMessage = finalMessage + "Status Notice: " + message + "<br><br>";
+
+            finalMessage = finalMessage + "Allocated Asset: " + birthdayGift + "<br>";
+            finalMessage = finalMessage + "Strategic Strategy: " + birthdayPlan;
+
+            document.getElementById("daysBox").innerHTML = daysLeft;
+            document.getElementById("result").innerHTML = finalMessage;
+
+            let day = 1;
+
+            while (day <= 5) {
+                countdownText = countdownText + "Sequence check routine " + day;
+                countdownText = countdownText + ": Core timeline buffering initialization...<br>";
+                day++;
+            }
+
+            document.getElementById("countdown").innerHTML = countdownText;
+        }
+    </script>
+
+</body>
+
+</html>
