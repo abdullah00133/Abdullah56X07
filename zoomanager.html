@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Corporate Operations Center</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        #zoo {
+            width: 420px;
+            border: 3px solid #38bdf8;
+            border-radius: 12px;
+            background-color: #1e293b;
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .zone {
+            border: 2px solid #0284c7;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 12px;
+            background-color: #0f172a;
+            text-align: left;
+        }
+
+        .animal {
+            font-weight: bold;
+            color: #f43f5e;
+        }
+
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 22px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #output {
+            width: 420px;
+            border: 2px dashed #38bdf8;
+            border-radius: 10px;
+            background-color: #1e293b;
+            margin: 20px auto;
+            padding: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Corporate Operations Center</h1>
+
+    <p>
+        Execute system commands to modify data nodes and audit infrastructure hierarchies.
+    </p>
+
+    <div id="zoo">
+
+        <div class="zone" id="lionZone">
+            <h2>Alpha Sector</h2>
+            <p>Component: <span class="animal">Module A</span></p>
+        </div>
+
+        <div class="zone" id="elephantZone">
+            <h2>Beta Sector</h2>
+            <p>Component: <span class="animal">Module B</span></p>
+        </div>
+
+        <div class="zone" id="pandaZone">
+            <h2>Gamma Sector</h2>
+            <p>Component: <span class="animal">Module C</span></p>
+        </div>
+
+    </div>
+
+    <button onclick="manageZoo()">Process Network</button>
+
+    <div id="output">
+        System logs pending initialization.
+    </div>
+
+    <script>
+        function manageZoo() {
+
+            let zoo = document.getElementById("zoo");
+            let lionZone = document.getElementById("lionZone");
+            let elephantZone = document.getElementById("elephantZone");
+            let pandaZone = document.getElementById("pandaZone");
+            let output = document.getElementById("output");
+
+            let parentNodeName = lionZone.parentNode.id;
+
+            let firstChildZone = zoo.children[0].id;
+            let secondChildZone = zoo.children[1].id;
+            let nextSiblingZone = lionZone.nextElementSibling.id;
+            let previousSiblingZone = pandaZone.previousElementSibling.id;
+
+            let elementNodeType = lionZone.nodeType;
+            let textNodeType = lionZone.firstChild.nodeType;
+
+            lionZone.style.backgroundColor = "#334155";
+            elephantZone.style.backgroundColor = "#334155";
+            pandaZone.style.backgroundColor = "#334155";
+
+            lionZone.querySelector("h2").innerHTML = "Modified Alpha Sector";
+            elephantZone.querySelector("h2").innerHTML = "Modified Beta Sector";
+            pandaZone.querySelector("h2").innerHTML = "Modified Gamma Sector";
+
+            output.innerHTML =
+                "<strong>Structural Hierarchy Registry:</strong><br>" +
+                "Root Directory Context: " + parentNodeName + "<br>" +
+                "Primary Child Directory: " + firstChildZone + "<br>" +
+                "Secondary Child Directory: " + secondChildZone + "<br><br>" +
+
+                "<strong>Sequential Sibling Logs:</strong><br>" +
+                "Forward Relative Node: " + nextSiblingZone + "<br>" +
+                "Retrospective Relative Node: " + previousSiblingZone + "<br><br>" +
+
+                "<strong>System Node Types:</strong><br>" +
+                "Container structural type: " + elementNodeType + "<br>" +
+                "Internal raw string segment type: " + textNodeType + "<br><br>" +
+
+                "<strong>State Mutation Notice:</strong><br>" +
+                "Header text variables and background style parameters successfully rewritten via engine runtime.";
+        }
+    </script>
+
+</body>
+
+</html>
