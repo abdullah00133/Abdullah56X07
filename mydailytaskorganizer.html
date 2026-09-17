@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Personal Task Planner</title>
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+    <style>
+        body {
+            background: #f1f3f5;
+        }
+
+        h1,
+        h3 {
+            color: #1e3a8a;
+        }
+
+        .box {
+            background: white;
+            color: #2b2d42;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-custom {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #111827;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-4">
+        <h1 class="mb-1">My Personal Task Planner</h1>
+        <p class="text-muted mb-4">Organize, sort, and track your daily routine efficiently.</p>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">List of Activities</h3>
+                <button class="btn btn-custom mr-2" onclick="sortAZ()">Sort Alphabetically (A-Z)</button>
+                <button class="btn btn-custom" onclick="sortZA()">Sort Reverse (Z-A)</button>
+                <div id="taskResult" class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Duration of Tasks</h3>
+                <button class="btn btn-custom mr-2" onclick="sortShortest()">Quickest First</button>
+                <button class="btn btn-custom" onclick="sortLongest()">Longest First</button>
+                <div id="timeResult" class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Format Time Display</h3>
+                <button class="btn btn-custom" onclick="addLabel()">Show with 'mins' Tag</button>
+                <div id="labelResult" class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tasks = ["Homework", "Breakfast", "Exercise", "Reading", "Packing Bag"];
+        var minutes ;
+
+        document.getElementById("taskResult").innerHTML = "Current Tasks: " + tasks.join(", ");
+        document.getElementById("timeResult").innerHTML = "Time allocated: " + minutes.join(", ") + " (in minutes)";
+        document.getElementById("labelResult").innerHTML = "Click the button above to format the time!";
+
+        function sortAZ() {
+            tasks.sort();
+            document.getElementById("taskResult").innerHTML = "Sorted (A to Z): " + tasks.join(", ");
+        }
+
+        function sortZA() {
+            tasks.sort();
+            tasks.reverse();
+            document.getElementById("taskResult").innerHTML = "Sorted (Z to A): " + tasks.join(", ");
+        }
+
+        function sortShortest() {
+            minutes.sort(function (a, b) { return a - b; });
+            document.getElementById("timeResult").innerHTML = "Shortest to Longest: " + minutes.join(", ");
+        }
+
+        function sortLongest() {
+            minutes.sort(function (a, b) { return b - a; });
+            document.getElementById("timeResult").innerHTML = "Longest to Shortest: " + minutes.join(", ");
+        }
+
+        function addLabel() {
+            var labelledMinutes = minutes.map(function (time) {
+                return time + " mins";
+            });
+            document.getElementById("labelResult").innerHTML = "Formatted Output: " + labelledMinutes.join(", ");
+        }
+    </script>
+
+</body>
+
+</html>
