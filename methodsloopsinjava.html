@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Stream Controller</title>
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+    <style>
+        body {
+            background-color: #f1f3f5;
+        }
+
+        h1,
+        h3 {
+            color: #1e3a8a;
+        }
+
+        .box {
+            background: white;
+            color: #2b2d42;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-custom {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #111827;
+            color: white;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #f43f5e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-4">
+        <h1 class="mb-1">Data Stream Controller</h1>
+        <p class="text-muted mb-4">Manipulate chronological array structures dynamically using core memory mutator
+            operations.</p>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Array Memory Buffer</h3>
+                <button class="btn btn-custom mr-2" onclick="pushElement()">Append Data Element (Push)</button>
+                <button class="btn btn-custom mr-2" onclick="popElement()">Extract Data Element (Pop)</button>
+                <button class="btn btn-custom" onclick="resetBuffer()">Reset Memory Array</button>
+                <div id="arrayOutput" class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var primaryBuffer =;
+
+        function updateDisplay() {
+            document.getElementById("arrayOutput").innerHTML = "<strong>Active Data Stream:</strong> [" + primaryBuffer.join(", ") + "]";
+        }
+
+        function pushElement() {
+            let randomValue = Math.floor(Math.random() * 90) + 10;
+            primaryBuffer.push(randomValue);
+            updateDisplay();
+        }
+
+        function popElement() {
+            if (primaryBuffer.length > 0) {
+                primaryBuffer.pop();
+                updateDisplay();
+            } else {
+                document.getElementById("arrayOutput").innerHTML = "<strong>Buffer Error:</strong> Array is empty.";
+            }
+        }
+
+        function resetBuffer() {
+            primaryBuffer =;
+            updateDisplay();
+        }
+
+        updateDisplay();
+    </script>
+
+</body>
+
+</html>
