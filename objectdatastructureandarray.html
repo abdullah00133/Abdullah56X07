@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Object Registry</title>
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+    <style>
+        body {
+            background-color: #f1f3f5;
+        }
+
+        h1,
+        h3 {
+            color: #1e3a8a;
+        }
+
+        .box {
+            background: white;
+            color: #2b2d42;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-custom {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #111827;
+            color: white;
+        }
+
+        .data-key {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .data-val {
+            color: #f43f5e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container py-4">
+        <h1 class="mb-1">Dynamic Object Registry</h1>
+        <p class="text-muted mb-4">Initialize, map, and process complex structural dataset records efficiently via
+            engine functions.</p>
+
+        <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title">Instance Parameter Management</h3>
+                <button class="btn btn-custom mr-2" onclick="initializeDataset()">Map Object Properties</button>
+                <button class="btn btn-custom" onclick="clearRegistry()">Reset View State</button>
+                <div id="registryOutput" class="box p-3 mt-3 rounded">
+                    Waiting for system initialization command sequence...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initializeDataset() {
+            let activeRecord = {
+                identityCode: "REC-9081",
+                classification: "System Operator Module",
+                operationalStatus: "Active Operational Clearance",
+                priorityWeight: 94
+            };
+
+            let displayStream = "<strong>Structured Object Properties:</strong><br>";
+
+            for (let referenceKey in activeRecord) {
+                if (activeRecord.hasOwnProperty(referenceKey)) {
+                    displayStream += "<span class='data-key'>" + referenceKey + ":</span> " +
+                        "<span class='data-val'>" + activeRecord[referenceKey] + "</span><br>";
+                }
+            }
+
+            document.getElementById("registryOutput").innerHTML = displayStream;
+        }
+
+        function clearRegistry() {
+            document.getElementById("registryOutput").innerHTML = "System logs pending initialization.";
+        }
+    </script>
+
+</body>
+
+</html>
