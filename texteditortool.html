@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Ultimate Code & Text Fixer</title>
+    <link rel="stylesheet" href="https://bootstrapcdn.com">
+
+    <style>
+        body {
+            background: #fff7e6;
+        }
+
+        h1,
+        h3 {
+            color: #d35400;
+        }
+
+        .box {
+            background: white;
+            color: #d35400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-4">
+
+        <h1 class="mb-1">⚡ Text & Logic Craftsman Pro</h1>
+        <p class="text-muted mb-4">Deep dive into variables, transform data formats, swap keywords instantly, and catch
+            hidden system crashes!</p>
+
+        <!-- TOPIC 1: typeof -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">🔍 Data Type Inspector</h3>
+                <button class="btn btn-warning" onclick="checkTypes()">Scan Data Types</button>
+                <div id="typeResult" class="box p-3 mt-3 rounded">Hit the scan button to decode the hidden data types!
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 2: Type Conversion -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">🔄 Data Morph Station</h3>
+                <button class="btn btn-warning" onclick="convertTypes()">Transform Values</button>
+                <div id="convertResult" class="box p-3 mt-3 rounded">Ready to morph data. Click to execute conversion!
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 3: Search and Replace -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">✏️ Precision Word Swap</h3>
+                <p>Target Sentence: "I like maths because maths is fun."</p>
+                <button class="btn btn-warning" onclick="replaceText()">Execute Keyword Swap</button>
+                <div id="replaceResult" class="box p-3 mt-3 rounded">Awaiting your command to rewrite the sentence!
+                </div>
+            </div>
+        </div>
+
+        <!-- TOPIC 4: try/catch -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title">🛡️ Sandboxed Error Interceptor</h3>
+                <button class="btn btn-warning" onclick="catchError()">Trigger Crash Test</button>
+                <div id="errorResult" class="box p-3 mt-3 rounded">System fully stable. Click to simulate a runtime
+                    error!</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function checkTypes() {
+            var name = "Riya";
+            var score = 95;
+            var isReady = true;
+
+            document.getElementById("typeResult").innerHTML =
+                "👤 Username: " + typeof name + "<br>" +
+                "🎯 High Score: " + typeof score + "<br>" +
+                "🚦 System Status: " + typeof isReady;
+        }
+
+        function convertTypes() {
+            var marksText = "88";
+            var marksNumber = Number(marksText);
+            var age = 12;
+            var ageText = String(age);
+
+            document.getElementById("convertResult").innerHTML =
+                '✨ Parsed String "88" into real Number: ' + marksNumber + "<br>" +
+                "🏷️ Native Format: " + typeof marksNumber + "<br><br>" +
+                "✨ Flattened Number 12 into readable Text: " + ageText + "<br>" +
+                "🏷️ Native Format: " + typeof ageText;
+        }
+
+        function replaceText() {
+            var sentence = "I like maths because maths is fun.";
+            var newSentence = sentence.replace("maths", "coding");
+
+            document.getElementById("replaceResult").innerHTML =
+                "📄 Original Copy: " + sentence + "<br><br>" +
+                "🔥 Upgraded Copy: " + newSentence;
+        }
+
+        function catchError() {
+            try {
+                var result = totalMarks + 10;
+                document.getElementById("errorResult").innerHTML = "Result: " + result;
+            }
+            catch (error) {
+                document.getElementById("errorResult").innerHTML =
+                    "🛑 Alert! System successfully intercepted a crash: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
